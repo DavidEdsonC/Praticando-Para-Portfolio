@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2? family= Poppins:wght@300;400;500;700 & display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --MenuBgcolor: #66b3ff;
+    --corBranca: #fff;
+    --corPreta: #000;
+    --corBgMenuHamburgue: #3e3b5a;
+    --corFont: #44d3cc;
+    --corFont1: #fc4c35;;
+}
+
+body {
+    color: var(--corPreta);
+    background-color: var(--corBranca);
+}
+
+
+.navegacao {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    box-shadow: 0 0.1rem 0.5rem #ccc;
+    background: var(--MenuBgcolor);
+    transition: all 0.5s;
+    position: fixed;
+}
+
+.navegacao .logo {
+    color: var(--corPreta);
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo span {
+    color: var(--corFont);
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.navegacao ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.navegacao ul li a {
+    color: var(--corPreta);
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.navegacao ul li a:hover {
+    color: var(--corFont1);
+}
+
+/* Colocar um ( Distplay --> NONE ), para esconder o menu. */
+
+.menu {
+    display: none;
+    cursor: pointer;
+}
+
+.menu .bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--corPreta);
+    margin: 5px auto;
+    transition: all 0.3s;
+}
+
+/* Usando o parametro ( nth-child ), para configurar apenas os filhos do ( Menu-bar ). */
+
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3) {
+    background: var(--corFont);
+}
+
+/* Fim da Configuração do Header. */
+/* Inicío do Main */
+
+.home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10%;
+}
+
+.home-text {
+    max-width: 50%;
+}
+
+.home-text .text-h4 {
+    font-size: 1.5rem;
+    color: var(--corFont);
+    margin-bottom: 1rem;
+}
+
+.home-text .text-h4 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 4rem;
+}
+
+.home-text p {
+    margin-bottom: 3rem;
+}
+
+.home-btn {
+    padding: 15px 45px;
+    background: var(--corFont);
+    color: var(--corBranca);
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.home-btn:hover {
+    background-color: #fc4c35;
+}
+
+.home-img {
+    max-width: 50%;
+}
+
+/* Fim da Verção para Desktop. */
+
+/* Inicío da configuração Responciva ( Menu-Hamburgue ) */
+
+@media (max-width:845px) {
+    .menu {
+        display: block;
+    }
+
+    .menu.ativo .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu.menu.ativo .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.menu.ativo .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navegacao {
+        padding: 15px 20px;
+    }
+
+    .navegacao ul li a {
+        color: var(--corBranca);
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        background-color: var(--corBgMenuHamburgue);
+        gap: -10px;
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        margin: 15px 0;
+    }
+
+    .nav-menu.ativo {
+        right: 0;
+        height: 100%;
+        transition: all 1s;
+    }
+
+    /* Configuração da Main */
+
+    .home {
+        padding: 100px 2%;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+        gap: 5rem;
+    }
+    .home-text {
+        min-width: 100%;
+    }
+
+    .home .text-h4 {
+        font-size: 15px;
+    }
+
+    .home .text-h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    .home p {
+        font-size: 15px;
+    }
+
+    .home-img {
+        min-width: 100%;
+        height: auto;
+    }
+
+}
+
+/* View Mobali */
+
+@media (max-width: 500px) {
+    header {
+        display: flex;
+        width: 0px;
+        height: 0px;
+    }
+    .navegacao {
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        gap: 8rem;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0;
+    }
+    .menu {
+        display: block;
+        position: absolute;
+        margin-bottom: 150%;
+        margin-left: 85%;
+    }
+
+    .menu .bar:nth-child(1),
+    .menu .bar:nth-child(2),
+    .menu .bar:nth-child(3) {
+        background: var(--corBranca);
+    }
+
+}
